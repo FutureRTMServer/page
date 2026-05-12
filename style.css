@@ -430,6 +430,7 @@ img {
 .banner-twitter { background-color: #249ef0; }
 .banner-map { background-color: #16a34a; }
 .banner-youtube { background-color: #f03; }
+.banner-odaibako { background-color: #a18659; }
 
 .ad-space {
     display: flex;
@@ -514,11 +515,11 @@ img {
     transform: translateY(0);
 }
 
-.site-footer {
+footer {
     background-color: #1f2937;
-    color: white;
+    color: #9ca3af;;
     padding: 32px 0;
-    margin-top: auto; /* 画面下部に押しやる */
+    margin-top: auto;
 }
 
 .footer-top {
@@ -528,17 +529,8 @@ img {
     margin-bottom: 24px;
 }
 
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.footer-info p {
-    color: #9ca3af;
-    font-size: 0.875rem;
-    margin-bottom: 4px;
+.footer-info h2{
+    padding-bottom: 15px;
 }
 
 .footer-links {
@@ -563,7 +555,6 @@ img {
 
 .footer-disclaimer {
     font-size: 0.75rem;
-    margin-top: 8px;
 }
 
 @media (min-width: 768px) {
@@ -655,14 +646,18 @@ img {
 
     .layout-grid {
         flex-direction: row;
+        align-items: flex-start;
     }
 
     .main-column {
-        width: 75%;
+        width: auto;
+        flex: 3;
     }
 
     .side-column {
-        width: 25%;
+        width: auto;
+        flex: 1;
+        min-width: 200px;
     }
 
     .purpose-grid {

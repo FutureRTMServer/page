@@ -6,107 +6,29 @@
     <head prefix="og: https://ogp.me/ns#">
         <meta charset="utf-8">
 
-        <title>◯◯鯖 公式ホームページ</title>
-        <meta name="author" content="◯◯鯖 広報班">
+        <title>◯◯鯖 | ホーム</title>
+        <meta name="author" content="◯◯鯖 広報係">
         <meta name="description" content="1.21.1で0からつくる、理想の鉄路。">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.jpg">
+        <link rel="icon" href="/img/favicon.jpg">
 
-        <meta property="og:title" content="◯◯鯖 公式ホームページ">
+        <meta property="og:title" content="◯◯鯖 | ホーム">
         <meta property="og:description" content="1.21.1で0からつくる、理想の鉄路。">
         <meta property="og:url" content=""/>
         <meta property="og:image" content="/img/ogp.png">
         <meta property="og:type" content="website">
-        <meta property="og:site_name" content="◯◯鯖 公式ホームページ">
+        <meta property="og:site_name" content="◯◯鯖 | ホーム">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@FutureRTMServer">
         
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:wght@500&family=Noto+Serif+JP:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     </head>
 
     <body>
-        <header class="main-header">
-            <div class="container main-header__inner">
-                <div class="logo-area">
-                    <img src="img/favicon.jpg">
-                    <div class="logo-text">
-                        <h1>◯◯鯖 公式ホームページ</h1>
-                        <p>Minecraft Java Edition Future RTM Server</p>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <nav class="global-nav">
-            <div class="container">
-                <div class="mobile-menu-toggle" id="mobile-menu-btn">
-                    <span>メニュー</span>
-                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </div>
-                
-                <ul class="nav-list" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            くらしの情報
-                            <span class="nav-subtext">サーバーについて</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#">サーバーについて</a>
-                            <a href="#">ルール・規約</a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            都市の情報
-                            <span class="nav-subtext">設定･自治体名</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#">都市情報</a>
-                            <a href="#">自治体情報</a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            観光の情報・イベント
-                            <span class="nav-subtext">運転会・名所紹介</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#">運転会について</a>
-                            <a href="#">名所紹介</a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            交通機関
-                            <span class="nav-subtext">交通機関の紹介</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#">～～鉄道</a>
-                            <a href="#">～～バス</a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            採用情報
-                            <span class="nav-subtext">参加する</span>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="#">参加条件・方法</a>
-                            <a href="#">メンバー紹介</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div id="header-placeholder"></div>
 
         <div class="hero">
             <div class="hero-overlay"></div>
@@ -200,82 +122,75 @@
                     </div>
                 </div>
 
-                <div class="side-column">
-                    <div class="widget">
-                        <h3 class="widget-title">リンク集</h3>
-                        <div class="banner-list">
-                            <a href="#" class="banner-link banner-twitter">公式Twitter</a>
-                            <a href="#" class="banner-link banner-youtube">公式Youtube</a>
-                            <a href="#" class="banner-link banner-map">Webマップ</a>
-                        </div>
-                    </div>
-
-                    <div class="widget" style="background: none; border: none; padding: 0;">
-                        <h3 style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 8px;">スポンサー</h3>
-                        <div class="ad-space">
-                            <div class="ad-banner">[広告] あああ鉄道</div>
-                            <div class="ad-banner">[広告] あああ株式会社</div>
-                        </div>
-                    </div>
-                </div>
+                <div id="sidebar-placeholder" class="side-column"></div>
             </div>
 
             <section class="intro-section fade-up">
-                <h2 class="intro-title">このサーバーなら、なんでもできる。</h2>
-                <p class="intro-desc">
-                    建築、経済、観光、そして仲間との出会い。<br>
-                    マイクラ区では、あなたの想像力を形にするためのすべての環境が整っています。<br>
-                    ルールを守って、自由に第二の人生を楽しみましょう。
-                </p>
+                <h2 class="intro-title">1.21.1で0からつくる架空鉄道。</h2>
+                <p class="intro-desc">◯◯鯖は、MinecraftのRealTrainModUnofficialを使用した架空鉄道サーバーです。<br>0からの広大な土地に、自分の思い描く鉄道を建設していきます。</p>
                 <div class="intro-features">
                     <div class="intro-feature-card">
-                        <img src="https://picsum.photos/400/300?building" alt="自由な建築" class="intro-feature-img">
+                        <!--<img src="https://picsum.photos/400/300?building" alt="自由な建築" class="intro-feature-img">-->
                         <div class="intro-feature-content">
-                            <h3 class="intro-feature-title">自由な建築</h3>
-                            <p class="intro-feature-text">広大な土地を購入し、あなたの理想の家やビルを自由に建てることができます。都市開発に参加しましょう。</p>
+                            <h3 class="intro-feature-title">すべて自由</h3>
+                            <p class="intro-feature-text">路線も車両も、各々作りたいものを作っていきます。ある程度の協力こそあれど、黙々とやるもよし、一緒に作っていくもよし。</p>
                         </div>
                     </div>
                     <div class="intro-feature-card">
-                        <img src="https://picsum.photos/400/300?business" alt="活発な経済" class="intro-feature-img">
+                        <!--<img src="https://picsum.photos/400/300?business" alt="サーバー" class="intro-feature-img">-->
                         <div class="intro-feature-content">
-                            <h3 class="intro-feature-title">活発な経済</h3>
-                            <p class="intro-feature-text">ハローワークで職業に就き、チェストショップでお店を開く。独自の経済システムで大富豪を目指せます。</p>
+                            <h3 class="intro-feature-title">24時間稼働のサーバー</h3>
+                            <p class="intro-feature-text">メンテナンス時を除き常時稼働しているサーバーは、あなたの作業を妨げません。</p>
                         </div>
                     </div>
                     <div class="intro-feature-card">
-                        <img src="https://picsum.photos/400/300?people" alt="温かいコミュニティ" class="intro-feature-img">
+                        <!--<img src="https://picsum.photos/400/300?people" alt="運転会の様子" class="intro-feature-img">-->
                         <div class="intro-feature-content">
-                            <h3 class="intro-feature-title">温かいコミュニティ</h3>
-                            <p class="intro-feature-text">定期的なイベントやDiscordでの交流。初心者でもすぐに馴染める、優しく楽しい住民たちが待っています。</p>
+                            <h3 class="intro-feature-title">運転会の実施</h3>
+                            <p class="intro-feature-text">ある程度開発が進んだら、スタフ通りに運転を行う運転会を実施します。時には指令所との更新も交えて、本格的な運転会を体験できます。</p>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <section class="intro-section fade-up">
+                <h2 class="intro-title">1.21.1でプレイするメリット</h2>
+                <p class="intro-desc">元来RealTrainModは1.7.10や1.12.2などの古いバージョンでプレイするのが一般的でしたが、◯◯鯖では1.21.1という新しいバージョンでのプレイが可能です。</p>
+                <div class="intro-features">
+                    <div class="intro-feature-card">
+                        <!--<img src="https://picsum.photos/400/300?building" alt="自由な建築" class="intro-feature-img">-->
+                        <div class="intro-feature-content">
+                            <h3 class="intro-feature-title">新たなmod</h3>
+                            <p class="intro-feature-text">強力な軽量化modであるSodiumやLitium、描画距離拡張modであるDistant Horizonsなど様々なmodが利用可能になります。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="intro-feature-card">
+                        <!--<img src="https://picsum.photos/400/300?business" alt="サーバー" class="intro-feature-img">-->
+                        <div class="intro-feature-content">
+                            <h3 class="intro-feature-title">Javaのアップデート</h3>
+                            <p class="intro-feature-text">Java8からJava21へアップデートされ、パフォーマンスの向上が期待できます。</p>
+                        </div>
+                    </div>
+                    <div class="intro-feature-card">
+                        <!--<img src="https://picsum.photos/400/300?people" alt="運転会の様子" class="intro-feature-img">-->
+                        <div class="intro-feature-content">
+                            <h3 class="intro-feature-title">新しい要素</h3>
+                            <p class="intro-feature-text">アップデートにより追加された新要素である桜などと列車を組み合わせることで、より魅力的な車窓をもった鉄道が建設できます。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="intro-section fade-up">
+                <h2 class="intro-title">参加を希望する方へ</h2>
+                <p class="intro-desc">
+                    ◯◯鯖では、定期的に参加者の募集を行っています。<br>募集開始の際には、当サイトや公式Twitterにて告知を行いますので、ぜひフォローしてお待ちください。
+                </p>
+            </section>
         </main>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="footer-top">
-                    <div class="footer-info">
-                        <div class="footer-logo">
-                            <h2 style="font-size: 1.25rem;">◯◯鯖 広報班</h2>
-                        </div>
-                        <p>＜住所＞</p>
-                    </div>
-                    <div class="footer-links">
-                        <a href="#">サイトポリシー</a>
-                        <a href="#">プライバシーポリシー</a>
-                        <a href="#">お問い合わせ</a>
-                        <a href="#">サイトマップ</a>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2026 Minecraft Java Edition Future RTM Server All Rights Reserved.</p>
-                    <p class="footer-disclaimer">Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
-                </div>
-            </div>
-        </footer>
-
+        <div id="footer-placeholder"></div>
         <script src="script.js"></script>
     </body>
 </html>

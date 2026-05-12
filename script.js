@@ -1,56 +1,106 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. モバイル用メニューの開閉処理
+    // 1. 読み込む外部ファイルのパス（必ず先頭に / をつける）
+    const headerPath = '/header.html';
+    const footerPath = '/footer.html';
+    const sidebarPath = '/sidebar.html';
+
+    // 2. Promise.allを使って、3つのファイルを同時に読み込み開始し、全部終わるまで待つ
+    Promise.all([
+        fetch(headerPath).then(response => {
+            if (!response.ok) throw new Error('Header load failed');
+            return response.text();
+        }),
+        fetch(footerPath).then(response => {
+            if (!response.ok) throw new Error('Footer load failed');
+            return response.text();
+        }),
+        fetch(sidebarPath).then(response => {
+            if (!response.ok) throw new Error('Sidebar load failed');
+            return response.text();
+        })
+    ])
+    .then(([headerData, footerData, sidebarData]) => {
+        // 3. 取得したHTMLデータを、それぞれの空の箱（プレースホルダー）に流し込む
+        const headerPlaceholder = document.getElementById('header-placeholder');
+        if (headerPlaceholder) headerPlaceholder.innerHTML = headerData;
+
+        const footerPlaceholder = document.getElementById('footer-placeholder');
+        if (footerPlaceholder) footerPlaceholder.innerHTML = footerData;
+
+        const sidebarPlaceholder = document.getElementById('sidebar-placeholder');
+        if (sidebarPlaceholder) sidebarPlaceholder.innerHTML = sidebarData;
+
+        // =========================================================
+        // HTMLの流し込みが終わった後に機能を追加
+        // =========================================================
+        
+        // ヘッダー内のモバイルメニューを設定
+        setupMobileMenu();
+        
+        // メインコンテンツ内のタブ機能を設定（※メインコンテンツは各ページにある前提）
+        setupTabs();
+        
+        // スクロールアニメーションの設定
+        setupScrollAnimation();
+    })
+    .catch(error => {
+        console.error('共通ファイルの読み込みに失敗しました。サーバー環境で実行しているか確認してください。', error);
+    });
+});
+
+// ==========================================
+// 各機能の設定関数
+// ==========================================
+
+// モバイルメニューの設定関数
+function setupMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navMenu = document.getElementById('nav-menu');
     const navItems = document.querySelectorAll('.nav-item');
 
-    // 全体のメニュー開閉
+    // 万が一、ヘッダーを読み込まないページがあった場合のエラー回避
+    if (!mobileMenuBtn || !navMenu) return;
+
     mobileMenuBtn.addEventListener('click', () => {
         navMenu.classList.toggle('is-open');
     });
 
-    // スマホ表示時、親メニュータップでドロップダウンを開閉する
     navItems.forEach(item => {
         const link = item.querySelector('.nav-link');
+        if (!link) return;
+        
         link.addEventListener('click', (e) => {
-            // 画面幅が768px未満（スマホ表示）の時だけ動作させる
-            if (window.innerWidth < 768) {
-                e.preventDefault(); // リンクの遷移を無効化
-                
-                // 他のメニューが開いていたら閉じる
+            // CSSのメディアクエリ（768px未満）と完全に一致する判定方法に変更
+            if (window.matchMedia('(max-width: 767px)').matches) {
+                e.preventDefault();
                 navItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('is-active');
                     }
                 });
-                
-                // クリックしたメニューの開閉を切り替え
                 item.classList.toggle('is-active');
             }
         });
     });
+}
 
-    // 3. タブ切り替えとリストのフィルタリング機能
+// ニュースタブの設定関数
+function setupTabs() {
     const tabs = document.querySelectorAll('.filter-tab');
     const newsItems = document.querySelectorAll('.news-item');
 
+    if (tabs.length === 0) return;
+
     tabs.forEach(tab => {
         tab.addEventListener('click', (e) => {
-            // 全タブの is-active クラスを外す
             tabs.forEach(t => t.classList.remove('is-active'));
-            
-            // クリックされたタブに is-active クラスを付ける
             e.target.classList.add('is-active');
             
             const targetCategory = e.target.getAttribute('data-target');
 
-            // リストの表示・非表示を切り替え
             newsItems.forEach(item => {
                 const itemCategory = item.getAttribute('data-category');
-                // 素のCSSに合わせて display プロパティを操作
                 if (targetCategory === 'all' || itemCategory === targetCategory) {
-                    // PC/スマホで display: flex を維持するため空文字ではなく flex を指定
                     item.style.display = 'flex'; 
                 } else {
                     item.style.display = 'none';
@@ -58,24 +108,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+}
 
-    // 4. スクロールアニメーション（Intersection Observer）
+// スクロールアニメーションの設定関数
+function setupScrollAnimation() {
+    const fadeElements = document.querySelectorAll('.fade-up');
+    if (fadeElements.length === 0) return;
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // 要素が15%画面に入ったら発火
+        threshold: 0.15
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // 一度発火したら監視を解除
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.fade-up').forEach(el => {
+    fadeElements.forEach(el => {
         observer.observe(el);
     });
-});
+}
